@@ -6,7 +6,12 @@ Yankee Doodle病毒（文件病毒）
 * 病毒的传染途径 (可执行文件加载运行的时候来进行病毒传染，)
 * 病毒运行机制
 
-![image-20231105105827224](G:\Users\qjh\Documents\Markdown Notebook\信息安全\assets\image-20231105105827224.png)
+![image-20231122103652007](./assets/image-20231122103652007.png)
 
 int:调用DOS中断,4bh是子功能部分
 
+感染可执行文件，在可执行文件加载运行的时候进行传染
+
+攻击传染部分（int21h/4bh）截取该中断，在DOS系统。
+
+在数组程序
