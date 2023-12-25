@@ -184,3 +184,11 @@ update中的<set>标签可以自动去除额外的逗号，动态地在行首插
 
 - <foreach>：
 
+```
+collection: 遍历的集合
+item: 遍历出来的元素
+separator: 分隔符
+open: 遍历开始前拼接的SQL片段
+close: 遍历结束后拼接的SQL片段
+```
+
