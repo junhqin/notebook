@@ -24,6 +24,8 @@ private static Logger log = LoggerFactory.getLogger(DeptController.class);
 
 ResponseBody注解会将类和list转换为json返回
 
+RequestBody将请求的Json转化为实体类给后端
+
 通过对@Slf4j的注解，可以直接调用Log
 
 
@@ -32,8 +34,71 @@ ResponseBody注解会将类和list转换为json返回
 
 @GetMapping ——指定Get方法
 
-
+@PathVariable Integer id——指定路径参数id
 
 #### 删除部门
 
 ![image-20240105014013377](./assets/image-20240105014013377.png)
+
+![image-20240202222516177](./assets/image-20240202222516177.png)
+
+![image-20240202234358579](./assets/image-20240202234358579.png)
+
+
+
+
+
+#### xmL映射文件：
+
+mybatis xml 约束：
+
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+```
+
+<where>标签会自动清除多余的and或者or，通过判断自动增加where
+
+resources定义文件夹目录要用"/"
+
+
+
+#### 批量删除：
+
+<foreach>从左到右，分别是==集合，元素，间隔符，开始，结尾==
+
+```
+    <!--批量删除员工 (1, 2, 3)-->
+    <delete id="delete">
+        delete
+        from emp
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+```
+
+
+
+#### 文件接收API：
+
+MultipartFile 方法形参的名称要和表单名称对应，否则用RequestParam注解
+
+![image-20240216002353656](./assets/image-20240216002353656.png)
+
+![image-20240217154145478](./assets/image-20240217154145478.png)
+
+#### Value:
+
+![image-20240217154225776](./assets/image-20240217154225776.png)
+
+HTTP请求是不包含状态的
+
+![image-20240217234713298](./assets/image-20240217234713298.png)
+
+
+
+ 
